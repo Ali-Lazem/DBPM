@@ -1,1 +1,5 @@
+# Core module (dbpm.py) dependency:
 filelock>=3.0
+
+# Grader scripts dependency (bootstrap_v7_lift_ci.py):
+numpy>=1.20
