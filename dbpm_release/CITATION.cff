@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the accompanying paper."
+title: "DBPM: Dynamic Bidirectional Pattern Memory"
+authors:
+  - family-names: "[Surname]"
+    given-names: "[Given names]"
+    orcid: "https://orcid.org/0000-0002-8677-9689"
+version: "1.0.0"
+date-released: "2026-01-01"
+url: "https://github.com/[USERNAME]/[REPO]"
+preferred-citation:
+  type: article
+  title: "[Paper 1 title]"
+  authors:
+    - family-names: "[Surname]"
+      given-names: "[Given names]"
+  year: 2026
+  journal: "[venue]"
+  doi: "[arXiv or journal DOI]"
