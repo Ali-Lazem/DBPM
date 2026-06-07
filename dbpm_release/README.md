@@ -79,6 +79,17 @@ confidence interval, and per-category breakdown are in
 text). The cohort is indexed by the UID lists in `cohorts/`, which point into
 the public PMC-Patients corpus.
 
+## Hardware requirements
+
+**This module (`dbpm.py`) and the grader scripts:** none special — they run
+on any machine with Python 3.8+. No GPU required.
+
+**The extraction pipeline that produced the analysed data** (not included in
+this repository) was run on 4× NVIDIA H200 GPUs (141 GB each): a Llama-3.3-70B
+generator and an MMed-Llama-3.1-70B verifier, each tensor-parallel across two
+GPUs, with ~64 CPU cores and ~900 GB RAM. See `run_ablation.sh` for the
+serving configuration.
+
 ## License
 See [LICENSE](LICENSE).
 
