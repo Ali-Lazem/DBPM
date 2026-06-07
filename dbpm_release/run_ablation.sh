@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=DBPM_FULL_ON_vs_OFF_5K
-#SBATCH --partition=<GPU_PARTITION>          # e.g. a partition with 4x 80GB+ GPUs
+#SBATCH --partition=<GPU_PARTITION>          # e.g. a partition with 4x H200 + GPUs
 #SBATCH --account=<YOUR_ACCOUNT>
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
