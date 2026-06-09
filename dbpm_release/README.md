@@ -135,4 +135,5 @@ If you use this module, please cite the accompanying paper (see
 
 ## License
 
-See [LICENSE](LICENSE).
+Code is licensed under MIT.
+Papers is licensed under CC BY 4.0.
