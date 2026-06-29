@@ -5,7 +5,7 @@
 
 ### Verifier-grounded inference-time gating for clinical extraction pipelines
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.ZENODO_ID.svg)](https://doi.org/10.5281/zenodo.ZENODO_ID)
+[![DOI](https://zenodo.org/badge/1262243839.svg)](https://doi.org/10.5281/zenodo.21038023)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
 [![Paper](https://img.shields.io/badge/paper-in%20preparation-lightgrey.svg)](#citation)
