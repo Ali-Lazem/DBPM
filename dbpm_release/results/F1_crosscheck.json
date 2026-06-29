@@ -1,0 +1,54 @@
+{
+  "_provenance": {
+    "prod_bpm": "/scratch/SCWF00175/shared/code/risk_v7/bpm_production.json",
+    "prod_bpm_size": 344203798,
+    "prod_bpm_mtime": "2026-05-16T21:59:51",
+    "m3_bpm": "/scratch/SCWF00175/shared/code/risk_v7_v5_M3_locked_ON/bpm_production.json",
+    "thresholds": {
+      "min_count": 2,
+      "min_severity": 0.7
+    }
+  },
+  "prod_167k": {
+    "re_patterns_total": 0,
+    "re_patterns_clearing_threshold": 0,
+    "onto_patterns_total": 0,
+    "_re_block_size": 0,
+    "_re_onto_block_size": 0,
+    "qa_patterns_total": 11,
+    "ner_patterns_total": 5860,
+    "rejection_events_total": 1367615,
+    "rejection_events_stage_3_re": 785797,
+    "rejection_stage_distribution": {
+      "Stage_3_Classifier": 785797,
+      "Stage_4_QA_Verifier": 548093,
+      "Stage_1_Gatekeeper": 33678,
+      "Stage_1_Verifier": 33,
+      "Stage_1_Rescue_Op": 14
+    }
+  },
+  "sealed_5k_m3_on": {
+    "re_patterns_total": 6,
+    "re_patterns_clearing_threshold": 6,
+    "onto_patterns_total": 6,
+    "_re_block_size": 6,
+    "_re_onto_block_size": 6
+  },
+  "findings": [
+    {
+      "test": "A_167k_re_block_empty",
+      "result": true,
+      "message": "\u2713 167K _re_block has 0 patterns clearing threshold"
+    },
+    {
+      "test": "B_167k_had_rejections",
+      "result": true,
+      "message": "\u2713 167K had 785,797 RE rejections; non-accumulation to _re_block is REAL, not data loss"
+    },
+    {
+      "test": "C_5k_m3_onto_populated",
+      "result": true,
+      "message": "\u2713 Sealed 5K M3-on _re_onto_block has 6 patterns; M3-RE channel works"
+    }
+  ]
+}

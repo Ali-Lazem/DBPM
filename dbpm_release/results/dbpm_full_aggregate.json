@@ -1,0 +1,99 @@
+{
+  "per_arm_counts": {
+    "v5_on": {
+      "n_patients": 5000,
+      "ner_pairs": 133790,
+      "re_pairs": 122425,
+      "qa_pairs": 31135,
+      "qa_pass": 31135,
+      "qa_fail": 0,
+      "qa_tagged_pass": 6101,
+      "qa_tagged_fail": 0,
+      "qa_v7_uncovered_tagged": 6101
+    },
+    "v5_off": {
+      "n_patients": 5000,
+      "ner_pairs": 133533,
+      "re_pairs": 123338,
+      "qa_pairs": 31143,
+      "qa_pass": 31143,
+      "qa_fail": 0,
+      "qa_tagged_pass": 0,
+      "qa_tagged_fail": 0,
+      "qa_v7_uncovered_tagged": 0
+    },
+    "v7_on": {
+      "n_patients": 5000,
+      "ner_pairs": 133790,
+      "re_pairs": 122425,
+      "qa_pairs": 31135,
+      "qa_pass": 31135,
+      "qa_fail": 0,
+      "qa_tagged_pass": 6101,
+      "qa_tagged_fail": 0,
+      "qa_v7_uncovered_tagged": 6101
+    },
+    "v7_off": {
+      "n_patients": 5000,
+      "ner_pairs": 133533,
+      "re_pairs": 123338,
+      "qa_pairs": 31143,
+      "qa_pass": 31143,
+      "qa_fail": 0,
+      "qa_tagged_pass": 0,
+      "qa_tagged_fail": 0,
+      "qa_v7_uncovered_tagged": 0
+    }
+  },
+  "per_arm_bpm_re": {
+    "v5_on": {
+      "total_re_patterns": 6,
+      "onto_violation_patterns": 6,
+      "onto_threshold_clearing": 6
+    },
+    "v5_off": {
+      "total_re_patterns": 0,
+      "onto_violation_patterns": 0,
+      "onto_threshold_clearing": 0
+    },
+    "v7_on": {
+      "total_re_patterns": 6,
+      "onto_violation_patterns": 6,
+      "onto_threshold_clearing": 6
+    },
+    "v7_off": {
+      "total_re_patterns": 0,
+      "onto_violation_patterns": 0,
+      "onto_threshold_clearing": 0
+    }
+  },
+  "pair_A_M3_RE_effect": {
+    "ner_delta": 257,
+    "re_delta": -913,
+    "qa_delta": -8,
+    "m3_re_suppressions": 913
+  },
+  "pair_B_v7_effect": {
+    "ner_delta": 257,
+    "re_delta": -913,
+    "qa_delta": -8,
+    "qa_tags_delta": 6101,
+    "v7_attributable_tags": 6101
+  },
+  "composite_attribution": {
+    "m3_re_suppressions": 913,
+    "v7_qa_tags": 6101,
+    "total_new_dbpm_events": 7014,
+    "total_pipeline_pairs": 287350,
+    "pct_pipeline_touched": 2.4409
+  },
+  "runtime": {
+    "v7_on_seconds": 31690,
+    "v7_off_seconds": 31730,
+    "delta_seconds": -40,
+    "delta_pct": -0.13,
+    "interpretation": "within per-patient variance floor",
+    "defensible_claim": "v7's per-patient overhead is below the pipeline's per-patient variance floor (0.13% across 5000 patients; n=1 paired run)."
+  },
+  "scope_note": "This composite attribution stacks two ablations on the same sealed 5K cohort. It is NOT a single 'DBPM full ON vs DBPM full OFF' run. Legacy NER/_ner_block and legacy _re_block checks remain active in all arms. A true all-mechanisms-off run would require a new arm with M1V7_ENABLE=0 AND BPM_DISABLE_M3=1 simultaneously."
+}
