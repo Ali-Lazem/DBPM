@@ -1,52 +1,39 @@
-<!-- Badges: place at very top, immediately under the H1 title in the rendered README.
-     Replace ZENODO_ID with the real DBPM Zenodo deposit id once minted. -->
+# Core module
 
-# DBPM — Dynamic Bidirectional Pattern Memory
+The standalone DBPM gating module and its runnable entry points. This is the
+contribution the paper characterises; the surrounding extraction pipeline is not
+included (see the repository root README).
 
-### Verifier-grounded inference-time gating for clinical extraction pipelines
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.ZENODO_ID.svg)](https://doi.org/10.5281/zenodo.ZENODO_ID)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
-[![Paper](https://img.shields.io/badge/paper-in%20preparation-lightgrey.svg)](#citation)
-
-Reference implementation of the DBPM gating module from *"Dynamic Bidirectional
-Pattern Memory: A Production-Scale Empirical Characterisation of Inference-Time
-Gating in Clinical NLP"* (Lazem & Teahan, 2026). Preprint: *arXiv (in preparation)*.
-
-DBPM is an inference-time, gradient-free pattern memory that gates the outputs of a
-verifier-grounded clinical extraction pipeline. Per task it records both **failures**
-(a blocklist) and **successes** (a whitelist), propagates signal **across tasks**,
-weights evidence by **source reliability**, and **forgets** via real-time decay. The
-gate consults this memory to **BLOCK**, **DOWNGRADE**, or **ALLOW** each candidate,
-with no gradient updates to either the generator or the verifier.
-
----
-
-## The finding in one table
-
-The pipeline pairs a generator (**Llama-3.3-70B**) with a verifier
-(**MMed-Llama-3.1-70B**) over the **167,034** patient narratives of PMC-Patients. The
-paper characterises which gating signals actually make such a memory selective at
-production scale. Two results anchor it:
-
-| Finding | Result |
+| File | Purpose |
 | --- | --- |
-| **Natural verifier-fed design fails at scale** | The relation-extraction channel persists **0** patterns despite **785,797** logged rejections, a structural consequence of decay outrunning reinforcement on a diffuse signal. |
-| **One signal source is selective** | Of five tested question-answering gate signals, only the NER-coverage signal separates pass from fail: path lift **1.84** (95% CI [1.75, 1.93], *p* < 10⁻¹⁵), within a **1.52–1.84** band across four replications. |
+| `dbpm.py` | The DBPM gating module. Implements the class `BadPatternMemory` (the paper's DBPM; legacy name): the memory update operator (Algorithm 1), three-tier gating (`gate_ner`, `gate_relation`, `gate_qa`), source-reliability weighting, real-time decay, cross-task propagation, and the two verifier-independent predicates. All numeric constants are class attributes, matching the values in the paper's Tables 2, 3, and 11. Running it directly executes a built-in smoke test. |
+| `example_usage.py` | End-to-end demo: records a sequence of verifier outcomes across the gated channels, saves and reloads the memory, and shows the gate returning BLOCK / DOWNGRADE / ALLOW. The fastest way to see the module work. |
+| `run_ablation.sh` | The full-ON vs full-OFF paired-ablation driver (genericised). Starts the two vLLM servers and runs the pipeline twice on the same cohort, toggling the DBPM mechanisms via the `BPM_*` environment flags. Pipeline entry points and model paths are placeholders (`<...>`) because the pipeline is not included; the module it toggles is `dbpm.py`. |
+| `requirements.txt` | Dependencies: `filelock` (core, for the atomic-write persistence protocol) and `numpy` (one grader only). |
+| `CITATION.cff` | Machine-readable citation metadata. |
 
-The organising principle: a pre-generation gate is selective for verifier rejection
-**only when its signal probes the same grounding question the verifier itself
-evaluates**. A verifier-independent ontology predicate fills the empty relation
-channel where the verifier-fed signal could not.
+## Quick check
 
----
+```bash
+pip install -r requirements.txt
+python3 dbpm.py            # built-in smoke test
+python3 example_usage.py  # end-to-end demo across the gated channels
+```
 
-## What this is
+No GPU required. The module and its demo run on any machine with Python 3.8+.
 
-The standalone DBPM gating module. The deployed worker gates **three** task channels
-at the candidate level, **NER, RE, and QAR**; the remaining task buckets carry
-reserved threshold entries but no consumer gate (see *Mapping to the paper*). The
+## The class name
+
+The paper refers to the mechanism as **DBPM** throughout. The code instantiates the
+class `BadPatternMemory`, and the question-answering gate method is `gate_qa`; both
+are retained as legacy identifiers. The paper's Appendix A.1 gives the full
+concept-to-identifier mapping between the names used in the text and the names used in
+this module.
+
+<!-- CONFIRM: this README's folder location. The repo root currently shows a
+     dbpm_release/ folder; if dbpm.py and friends live inside it, place this file
+     there. If they were moved to the repo root, fold this table into the root README
+     instead and delete this file. -->reserved threshold entries but no consumer gate (see *Mapping to the paper*). The
 module implements:
 
 - Bidirectional fail/success learning (blocklist and whitelist)
