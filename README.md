@@ -4,7 +4,7 @@
 # DBPM — Dynamic Bidirectional Pattern Memory
 
 ### Verifier-grounded inference-time gating for clinical extraction pipelines
-
+[![arXiv](https://img.shields.io/badge/arXiv-2607.00870-b31b1b.svg)](https://arxiv.org/abs/2607.00870)
 [![DOI](https://zenodo.org/badge/1262243839.svg)](https://doi.org/10.5281/zenodo.21038023)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
@@ -220,13 +220,15 @@ days of elapsed wall-clock time. See `run_ablation.sh` for the serving configura
 
 ```bibtex
 @article{lazem2026dbpm,
-  title   = {Dynamic Bidirectional Pattern Memory: A Production-Scale Empirical
-             Characterisation of Inference-Time Gating in Clinical NLP},
-  author  = {Lazem, Ali H. and Teahan, William J.},
-  year    = {2026},
-  note    = {Manuscript in preparation}
-}
-```
+  title         = {Dynamic Bidirectional Pattern Memory: A Production-Scale
+                   Empirical Characterisation of Inference-Time Gating in Clinical NLP},
+  author        = {Lazem, Ali H. and Teahan, William J.},
+  journal       = {arXiv preprint arXiv:2607.00870},
+  year          = {2026},
+  eprint        = {2607.00870},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}```
 
 See [`CITATION.cff`](CITATION.cff) for machine-readable metadata.
 
