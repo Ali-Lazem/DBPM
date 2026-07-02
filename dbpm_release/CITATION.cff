@@ -1,19 +1,23 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite the accompanying paper."
-title: "DBPM: Dynamic Bidirectional Pattern Memory"
+message: "If you use this software, please cite both the paper and the software."
 authors:
-  - family-names: "[Surname]"
-    given-names: "[Given names]"
-    orcid: "https://orcid.org/0000-0002-8677-9689"
-version: "1.0.0"
-date-released: "2026-01-01"
-url: "https://github.com/[USERNAME]/[REPO]"
+  - family-names: Lazem
+    given-names: Ali H.
+  - family-names: Teahan
+    given-names: William J.
+title: "DBPM — Dynamic Bidirectional Pattern Memory"
+version: 1.0.0
+doi: 10.5281/zenodo.21038023
+date-released: 2026-07-01
+url: "https://github.com/Ali-Lazem/DBPM"
 preferred-citation:
   type: article
-  title: "[Paper 1 title]"
   authors:
-    - family-names: "[Surname]"
-      given-names: "[Given names]"
+    - family-names: Lazem
+      given-names: Ali H.
+    - family-names: Teahan
+      given-names: William J.
+  title: "Dynamic Bidirectional Pattern Memory: A Production-Scale Empirical Characterisation of Inference-Time Gating in Clinical NLP"
   year: 2026
-  journal: "[venue]"
-  doi: "[arXiv or journal DOI]"
+  journal: "arXiv preprint"
+  notes: "arXiv:2607.00870"
