@@ -228,7 +228,8 @@ days of elapsed wall-clock time. See `run_ablation.sh` for the serving configura
   eprint        = {2607.00870},
   archivePrefix = {arXiv},
   primaryClass  = {cs.CL}
-}```
+}
+```
 
 See [`CITATION.cff`](CITATION.cff) for machine-readable metadata.
 
