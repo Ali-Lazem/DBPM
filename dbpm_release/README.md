@@ -207,11 +207,14 @@ days of elapsed wall-clock time. See `run_ablation.sh` for the serving configura
 
 ```bibtex
 @article{lazem2026dbpm,
-  title   = {Dynamic Bidirectional Pattern Memory: A Production-Scale Empirical
-             Characterisation of Inference-Time Gating in Clinical NLP},
-  author  = {Lazem, Ali H. and Teahan, William J.},
-  year    = {2026},
-  note    = {Manuscript in preparation}
+  title         = {Dynamic Bidirectional Pattern Memory: A Production-Scale
+                   Empirical Characterisation of Inference-Time Gating in Clinical NLP},
+  author        = {Lazem, Ali H. and Teahan, William J.},
+  journal       = {arXiv preprint arXiv:2607.00870},
+  year          = {2026},
+  eprint        = {2607.00870},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
 }
 ```
 
